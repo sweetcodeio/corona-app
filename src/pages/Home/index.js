@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 import styles from "./styles";
 
-export default function HomeScreen() {
+export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>CORONAVIRUS</Text>
