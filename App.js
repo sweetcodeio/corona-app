@@ -8,7 +8,7 @@ import Routes from "./src/Routes/route.js";
 export default function App() {
   return (
     <React.Fragment>
-      <StatusBar barStyle="light-content"/>
+      <StatusBar barStyle="light-content" />
       <Routes />
     </React.Fragment>
   );

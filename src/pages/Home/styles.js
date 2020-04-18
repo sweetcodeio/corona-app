@@ -30,14 +30,14 @@ export const DateText = styled.Text`
 export const Content = styled.View`
   width: 100%;
 `;
-// export const GraphicContainer = styled.View`
-//   width: 100%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-top: 40px;
-//   margin-bottom: 20px;
-// `;
+export const GraphicContainer = styled.View`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+`;
 
 export const InformationContainer = styled.View`
   width: 100%;
@@ -58,9 +58,9 @@ export const InformationHeader = styled.View`
 export const InformationCard = styled.View`
   width: 47.5%;
   padding: 15px;
-  border-width: 0.8px;
+  border-width: 1.6px;
   border-color: #dae1e4;
-  border-radius: 5px;
+  border-radius: 4px;
   margin-left: 2.5%;
   margin-top: 3.5%;
 `;
@@ -78,7 +78,6 @@ export const InformationNumber = styled.Text`
   margin-top: 10px;
   color: ${colors.darkBlue};
   font-weight: 700;
-  
 `;
 
 // export const InformationIcon = styled.View`
@@ -96,4 +95,12 @@ export const InformationTitle = styled.Text`
   font-size: 15px;
   color: ${colors.gray};
   font-weight: 500;
+`;
+
+export const WorldMapContainer = styled.View`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
 `;
