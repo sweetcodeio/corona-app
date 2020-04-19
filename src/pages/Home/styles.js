@@ -79,18 +79,6 @@ export const InformationNumber = styled.Text`
   color: ${colors.darkBlue};
   font-weight: 700;
 `;
-
-// export const InformationIcon = styled.View`
-//   width: 20px;
-//   height: 7px;
-//   border-radius: 51px;
-//   background-color: ${(props) => props.color};
-//   margin-right: 5px;
-// `;
-// export const InformationItem = styled.View`
-//   display: flex;
-//   margin-bottom: 10px;
-// `;
 export const InformationTitle = styled.Text`
   font-size: 15px;
   color: ${colors.gray};

@@ -26,8 +26,6 @@ import {
   InformationColor,
   GraphicContainer,
   WorldMapContainer,
-  // InformationItem,
-  // InformationIcon,
 } from "./styles";
 
 export default function Home() {
@@ -43,22 +41,22 @@ export default function Home() {
         {
           key: 1,
           amount: data.confirmed,
-          svg: { fill: "#000" },
+          svg: { fill: colors.green },
         },
         {
           key: 2,
           amount: data.cases,
-          svg: { fill: "#000" },
+          svg: { fill: colors.yellow },
         },
         {
           key: 3,
           amount: data.deaths,
-          svg: { fill: "#000" },
+          svg: { fill: colors.red },
         },
         {
           key: 4,
           amount: data.recovered,
-          svg: { fill: "#000" },
+          svg: { fill: colors.lightBlue },
         },
       ]);
     }
@@ -66,19 +64,96 @@ export default function Home() {
   }, []);
 
   if (!data.length) return <></>;
-  console.log(data);
-
   return (
     <Container>
-      <View>
-        <PieChart
-          style={{ height: 200, width: 200 }}
-          valueAccessor={({ item }) => item.amount}
-          data={data}
-          spacing={0}
-          outerRadius={"100%"}
-        />
-      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Header>
+          <HeaderText>COVID AGORA</HeaderText>
+          <DateText>{moment(new Date()).format("DD/MM/YYYY")}</DateText>
+        </Header>
+        <Content>
+          <GraphicContainer>
+            <HeaderText>{status.country}</HeaderText>
+            <PieChart
+              style={{ height: 200, width: 200 }}
+              valueAccessor={({ item }) => item.amount}
+              data={data}
+              spacing={0}
+              outerRadius={"100%"}
+            />
+          </GraphicContainer>
+          <InformationContainer>
+            <InformationCard>
+              <InformationHeader>
+                <InformationColor color={colors.green} />
+                <InformationTitle>Confirmados</InformationTitle>
+              </InformationHeader>
+              <InformationNumber>{status.confirmed}</InformationNumber>
+            </InformationCard>
+
+            <InformationCard>
+              <InformationHeader>
+                <InformationColor color={colors.yellow} />
+                <InformationTitle>Suspeitos</InformationTitle>
+              </InformationHeader>
+              <InformationNumber>{status.cases}</InformationNumber>
+            </InformationCard>
+
+            <InformationCard>
+              <InformationHeader>
+                <InformationColor color={colors.red} />
+                <InformationTitle>Óbitos</InformationTitle>
+              </InformationHeader>
+              <InformationNumber>{status.deaths}</InformationNumber>
+            </InformationCard>
+
+            <InformationCard>
+              <InformationHeader>
+                <InformationColor color={colors.lightBlue} />
+                <InformationTitle>Curados</InformationTitle>
+              </InformationHeader>
+              <InformationNumber>{status.recovered}</InformationNumber>
+            </InformationCard>
+
+            <InformationCard>
+              <InformationHeader>
+                <InformationColor color={colors.darkBlue} />
+                <InformationTitle>Total</InformationTitle>
+              </InformationHeader>
+              <InformationNumber>
+                {status.confirmed +
+                  status.cases +
+                  status.deaths +
+                  status.recovered}
+              </InformationNumber>
+            </InformationCard>
+          </InformationContainer>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              margin: 2,
+              alignSelf: "center",
+              alignItems: "center",
+              marginTop: 12,
+            }}
+          >
+            <Text
+              style={{
+                color: "#3cc72a",
+                fontSize: 15,
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              BUSCAR POR ESTADO
+            </Text>
+            <Feather name="arrow-right" size={20} color="#000" />
+          </TouchableOpacity>
+          <WorldMapContainer>
+            <Image source={worldMap} style={{ height: 250, width: 250 }} />
+          </WorldMapContainer>
+        </Content>
+      </ScrollView>
     </Container>
   );
 }
