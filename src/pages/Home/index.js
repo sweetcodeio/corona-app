@@ -1,157 +1,91 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
-import { PieChart } from "react-native-svg-charts";
+import { ScrollView, TouchableOpacity, Text, Image } from "react-native";
 
-import { ScrollView, Image, TouchableOpacity, Text, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import worldIcon from "../../assets/world.png";
+import brFlag from "../../assets/BrFlag.png";
 
-import colors from "../../utils/Colors";
-
-import api from "../../services/api";
-import worldMap from "../../assets/worldmap.png";
-
-import moment from "moment";
-moment.locale("pt-BR");
 import {
   Container,
   Header,
   HeaderText,
-  DateText,
   Content,
-  InformationContainer,
-  InformationCard,
-  InformationHeader,
-  InformationTitle,
-  InformationNumber,
-  InformationColor,
-  GraphicContainer,
-  WorldMapContainer,
+  MenuContainer,
+  InterativeCard,
 } from "./styles";
 
 export default function Home() {
-  const [status, setStatus] = useState([]);
-  const [data, setData] = useState([]);
+  const navigation = useNavigation();
 
-  useEffect(() => {
-    async function loadBrazil() {
-      const { data } = await api.get("brazil").then((r) => r.data);
+  function navigateTo(Home) {
+    navigation.navigate("Brazil", { Home });
+  }
 
-      setStatus(data);
-      setData([
-        {
-          key: 1,
-          amount: data.confirmed,
-          svg: { fill: colors.green },
-        },
-        {
-          key: 2,
-          amount: data.cases,
-          svg: { fill: colors.yellow },
-        },
-        {
-          key: 3,
-          amount: data.deaths,
-          svg: { fill: colors.red },
-        },
-        {
-          key: 4,
-          amount: data.recovered,
-          svg: { fill: colors.lightBlue },
-        },
-      ]);
-    }
-    loadBrazil();
-  }, []);
-
-  if (!data.length) return <></>;
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header>
           <HeaderText>COVID AGORA</HeaderText>
-          <DateText>{moment(new Date()).format("DD/MM/YYYY")}</DateText>
         </Header>
         <Content>
-          <GraphicContainer>
-            <HeaderText>{status.country}</HeaderText>
-            <PieChart
-              style={{ height: 200, width: 200 }}
-              valueAccessor={({ item }) => item.amount}
-              data={data}
-              spacing={0}
-              outerRadius={"100%"}
-            />
-          </GraphicContainer>
-          <InformationContainer>
-            <InformationCard>
-              <InformationHeader>
-                <InformationColor color={colors.green} />
-                <InformationTitle>Confirmados</InformationTitle>
-              </InformationHeader>
-              <InformationNumber>{status.confirmed}</InformationNumber>
-            </InformationCard>
-
-            <InformationCard>
-              <InformationHeader>
-                <InformationColor color={colors.yellow} />
-                <InformationTitle>Suspeitos</InformationTitle>
-              </InformationHeader>
-              <InformationNumber>{status.cases}</InformationNumber>
-            </InformationCard>
-
-            <InformationCard>
-              <InformationHeader>
-                <InformationColor color={colors.red} />
-                <InformationTitle>Óbitos</InformationTitle>
-              </InformationHeader>
-              <InformationNumber>{status.deaths}</InformationNumber>
-            </InformationCard>
-
-            <InformationCard>
-              <InformationHeader>
-                <InformationColor color={colors.lightBlue} />
-                <InformationTitle>Curados</InformationTitle>
-              </InformationHeader>
-              <InformationNumber>{status.recovered}</InformationNumber>
-            </InformationCard>
-
-            <InformationCard>
-              <InformationHeader>
-                <InformationColor color={colors.darkBlue} />
-                <InformationTitle>Total</InformationTitle>
-              </InformationHeader>
-              <InformationNumber>
-                {status.confirmed +
-                  status.cases +
-                  status.deaths +
-                  status.recovered}
-              </InformationNumber>
-            </InformationCard>
-          </InformationContainer>
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              margin: 2,
-              alignSelf: "center",
-              alignItems: "center",
-              marginTop: 12,
-            }}
-          >
-            <Text
-              style={{
-                color: "#3cc72a",
-                fontSize: 15,
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              BUSCAR POR ESTADO
-            </Text>
-            <Feather name="arrow-right" size={20} color="#000" />
-          </TouchableOpacity>
-          <WorldMapContainer>
-            <Image source={worldMap} style={{ height: 250, width: 250 }} />
-          </WorldMapContainer>
+          <MenuContainer>
+            <Text>Escolha a opção desejada...</Text>
+            <InterativeCard>
+              <Image
+                source={worldIcon}
+                style={{ width: 80, height: 80, alignSelf: "center" }}
+              />
+              <TouchableOpacity
+                onPress={() => {}}
+                style={{
+                  flexDirection: "row",
+                  margin: 2,
+                  alignSelf: "center",
+                  alignItems: "center",
+                  marginTop: 2,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "#007af5",
+                    fontSize: 20,
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  MUNDO
+                </Text>
+              </TouchableOpacity>
+            </InterativeCard>
+            <InterativeCard>
+              <Image
+                source={brFlag}
+                style={{ width: 105, height: 80, alignSelf: "center" }}
+              />
+              <TouchableOpacity
+                onPress={() => navigateTo(Home)}
+                style={{
+                  flexDirection: "row",
+                  margin: 2,
+                  alignSelf: "center",
+                  alignItems: "center",
+                  marginTop: 2,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "#58d12c",
+                    fontSize: 20,
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  BRASIL
+                </Text>
+              </TouchableOpacity>
+            </InterativeCard>
+          </MenuContainer>
         </Content>
       </ScrollView>
     </Container>
