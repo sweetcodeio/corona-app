@@ -29,39 +29,47 @@ import {
   InterativeCard,
 } from "./styles";
 
-export default function Brazil() {
+export default function World() {
   const [status, setStatus] = useState([]);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function loadBrazil() {
-      const { data } = await api.get("brazil").then((r) => r.data);
+    async function loadWorld() {
+      const { data } = await api.get("countries").then((r) => r.data);
 
-      setStatus(data);
+      setStatus({
+        cases: data.reduce((a, b) => a + b.cases, 0),
+        confirmed: data.reduce((a, b) => a + b.confirmed, 0),
+        deaths: data.reduce((a, b) => a + b.deaths, 0),
+        recovered: data.reduce((a, b) => a + b.recovered, 0),
+        updated_at: data
+          .map((c) => Date.parse(c.updated_at))
+          .sort((a, b) => a - b)[0],
+      });
       setData([
         {
           key: 1,
-          amount: data.confirmed,
+          amount: data.reduce((a, b) => a + b.confirmed, 0),
           svg: { fill: colors.green },
         },
         {
           key: 2,
-          amount: data.cases,
+          amount: data.reduce((a, b) => a + b.cases, 0),
           svg: { fill: colors.yellow },
         },
         {
           key: 3,
-          amount: data.deaths,
+          amount: data.reduce((a, b) => a + b.deaths, 0),
           svg: { fill: colors.red },
         },
         {
           key: 4,
-          amount: data.recovered,
+          amount: data.reduce((a, b) => a + b.recovered, 0),
           svg: { fill: colors.lightBlue },
         },
       ]);
     }
-    loadBrazil();
+    loadWorld();
   }, []);
 
   if (!data.length) return <></>;
@@ -73,7 +81,7 @@ export default function Brazil() {
         </Header>
         <Content>
           <GraphicContainer>
-            <HeaderText>{status.country}</HeaderText>
+            <HeaderText>MUNDO</HeaderText>
             <PieChart
               style={{ height: 200, width: 200 }}
               valueAccessor={({ item }) => item.amount}
@@ -146,13 +154,13 @@ export default function Brazil() {
               >
                 <Text
                   style={{
-                    color: "#3cc72a",
+                    color: "#0f68f7",
                     fontSize: 15,
                     textAlign: "center",
                     fontWeight: "bold",
                   }}
                 >
-                  BUSCA POR ESTADO
+                  BUSCA POR PÁIS
                 </Text>
                 <Feather name="arrow-right" size={20} color="#000" />
               </TouchableOpacity>

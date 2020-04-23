@@ -18,8 +18,12 @@ import {
 export default function Home() {
   const navigation = useNavigation();
 
-  function navigateTo(Home) {
+  function navigateToBrazil(Home) {
     navigation.navigate("Brazil", { Home });
+  }
+
+  function navigateToWorld(Home) {
+    navigation.navigate("World", { Home });
   }
 
   return (
@@ -37,7 +41,7 @@ export default function Home() {
                 style={{ width: 80, height: 80, alignSelf: "center" }}
               />
               <TouchableOpacity
-                onPress={() => {}}
+                onPress={() => navigateToWorld(Home)}
                 style={{
                   flexDirection: "row",
                   margin: 2,
@@ -64,7 +68,7 @@ export default function Home() {
                 style={{ width: 105, height: 80, alignSelf: "center" }}
               />
               <TouchableOpacity
-                onPress={() => navigateTo(Home)}
+                onPress={() => navigateToBrazil(Home)}
                 style={{
                   flexDirection: "row",
                   margin: 2,
