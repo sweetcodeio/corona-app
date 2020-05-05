@@ -18,7 +18,7 @@
     "@react-navigation/native": "^5.1.6",
     "@react-navigation/stack": "^5.2.11",
     "axios": "^0.19.2",
-    "expo": "^37.0.7",
+    "expo": "^37.0.8",
     "moment": "^2.24.0",
     "package.json": "^2.0.1",
     "react": "~16.9.0",
