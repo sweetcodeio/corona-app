@@ -1,9 +1,7 @@
 {
   "name": "corona-app",
   "version": "1.0.0",
-  "repository": "https://github.com/sweetcodeio/corona-app.git",
-  "author": "Gabriel \"Dev HijaZi\" F. <46979459+devhijazi@users.noreply.github.com>",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -12,6 +10,8 @@
     "web": "expo start --web",
     "eject": "expo eject"
   },
+  "repository": "https://github.com/sweetcodeio/corona-app.git",
+  "author": "Gabriel \"Dev HijaZi\" F. <46979459+devhijazi@users.noreply.github.com>",
   "dependencies": {
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/masked-view": "^0.1.10",
