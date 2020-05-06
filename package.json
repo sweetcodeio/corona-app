@@ -16,7 +16,7 @@
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.2.4",
-    "@react-navigation/stack": "^5.2.11",
+    "@react-navigation/stack": "^5.2.19",
     "axios": "^0.19.2",
     "expo": "^37.0.8",
     "moment": "^2.25.3",
