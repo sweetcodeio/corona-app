@@ -27,7 +27,7 @@
     "react-native-gesture-handler": "^1.6.1",
     "react-native-pie-chart": "^1.0.13",
     "react-native-safe-area-context": "^1.0.2",
-    "react-native-screens": "^2.7.0",
+    "react-native-screens": "^2.8.0",
     "react-native-svg": "^12.1.0",
     "react-native-svg-charts": "^5.4.0",
     "react-native-web": "~0.12.2",
