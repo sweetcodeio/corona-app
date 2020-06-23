@@ -5084,10 +5084,10 @@ react-native-pie-chart@^1.0.13:
   resolved "https://registry.yarnpkg.com/react-native-pie-chart/-/react-native-pie-chart-1.0.13.tgz#2f456ea1aec831dba2de930235df3c6d2c478294"
   integrity sha512-3SYGGDq3ZnL6kJNeaFxd7BHqBU1+umD9POYYlGMlYEE0sPpZ7Pw+kgiPcm70xUP9Kuj8/def3A2/0krOtNhohA==
 
-react-native-safe-area-context@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.5.tgz#3dd9bf2fea3b51f894b9849f11108ac303bbefe5"
-  integrity sha512-cLZtHvzm/tdCTCOCgNRUsnl9ma8MozE9vtxHQVftuY6hRt+esCBdXA5jXcuCaCj+yUe4Akw+c5BPFNUF5vOTjQ==
+react-native-safe-area-context@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.6.tgz#ee180f53f9f40f8302923b9c09d821cf8ada01eb"
+  integrity sha512-/McWHgRG3CjXo/1ctlxH3mjW2psjf/QYAt9kWUTEtHu4b6z1y4hfUIGuYEJ02asaS1ixPsYrkqVqwzTv4olUMQ==
 
 react-native-safe-area-view@^0.14.9:
   version "0.14.9"
