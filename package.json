@@ -30,7 +30,7 @@
     "react-native-screens": "^2.9.0",
     "react-native-svg": "^12.1.0",
     "react-native-svg-charts": "^5.4.0",
-    "react-native-web": "~0.13.1",
+    "react-native-web": "~0.13.3",
     "react-navigation": "^4.4.0",
     "styled-components": "^5.1.1"
   },
